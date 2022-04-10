@@ -28,8 +28,7 @@
 
                 <!-- Logo desktop -->
                 <a href="#" class="logo">
-                    NBA STORE
-{{--                    <img src="{{asset('assets')}}/images/icons/logo-01.png" alt="IMG-LOGO">--}}
+                    <img src="{{asset('assets')}}/images/icons/logo-01.png" alt="IMG-LOGO">
                 </a>
 
                 <!-- Menu desktop -->
@@ -44,12 +43,8 @@
                             <a href="{{route('allproducts')}}">Alışveriş</a>
                         </li>
 
-                        <li {{--class="label1" data-label1=""--}}>
-                            <a href="shoping-cart.html">Özet</a>
-                        </li>
-
                         <li>
-                            <a href="blog.html">Blog</a>
+                            <a href="{{route('blog')}}">Blog</a>
                         </li>
 
                         <li>
@@ -198,11 +193,11 @@
             </li>
 
             <li>
-                <a href="shoping-cart.html" class="label1 rs1" data-label1="hot">Features</a>
+                <a href="{{route('shopping_cart')}}" class="label1 rs1" data-label1="hot">Features</a>
             </li>
 
             <li>
-                <a href="blog.html">Blog</a>
+                <a href="{{route('blog')}}">Blog</a>
             </li>
 
             <li>
@@ -304,12 +299,8 @@
                 </div>
 
                 <div class="header-cart-buttons flex-w w-full">
-                    <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+                    <a href="{{route('shopping_cart')}}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
                         View Cart
-                    </a>
-
-                    <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
-                        Check Out
                     </a>
                 </div>
             </div>
