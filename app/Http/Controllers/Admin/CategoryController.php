@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -23,13 +23,13 @@ class CategoryController extends Controller
             return $title;
         }
         $parent=Category::find($category->parent_id);
-        $title=$parent->title.'>'.$title;
+        $title=$parent->title.' > '.$title;
         return CategoryController::getParentsTree($parent,$title);
     }
 
     public function index()
     {
-        $datalist=Category::with('children')->get();
+        $datalist=Category::all()/*with('children')->get()*/;
         return view('admin.category',['datalist'=>$datalist]);
     }
     public function add()

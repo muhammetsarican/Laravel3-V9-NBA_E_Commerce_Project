@@ -26,21 +26,6 @@ class UserController extends Controller
     {
         return view('home.register');
     }
-//    public function logincheck(Request $request)
-//    {
-//        $data=User::find(3);
-//        if($data->email==$request->input('email'))
-//        {
-//            if( $data->password==$request->input('password')){
-//                print_r($data->name);
-//                return view('home.index')/*->intended('admin')*/;
-//            }
-//            return back()->withErrors(['email'=>'The provided credentials do not match our records']);
-//        }
-//        else {
-//            return view('home/login');
-//        }
-//    }
     public function logincheck(Request $request)
     {
         if($request->isMethod('post'))

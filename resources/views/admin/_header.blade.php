@@ -28,7 +28,7 @@
 
                 <!-- Logo desktop -->
                 <a href="#" class="logo">
-                    <img src="{{asset('assets')}}/images/icons/logo-03.png" alt="IMG-LOGO">
+                    <img src="{{asset('assets')}}/images/icons/logo-04.png" alt="IMG-LOGO">
                 </a>
 
                 <!-- Menu desktop -->
@@ -36,20 +36,38 @@
                     <ul class="main-menu">
                         <li>
                             <a href="{{route('admin_category')}}">Kategoriler</a>
-
                         </li>
 
                         <li>
-                            <a href="{{route('allproducts')}}">Ürünler</a>
+                            <a href="{{route('admin_product')}}">Ürünler</a>
                         </li>
 
                         <li>
-                            <a href="{{route('blog')}}">Kullanıcılar</a>
+                            <a href="{{route('admin_user')}}">Kullanıcılar</a>
                         </li>
 
-                        <li>
-                            <a href="{{route('about')}}">Mesajlar</a>
-                        </li>
+                        <ul class="main-menu">
+                            <li class="active-menu">
+                                <a href="#" style="color: #000000">Siparişler</a>
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="{{route('admin_order',['status'=>'new'])}}" class="flex-c-m trans-04 p-lr-25">
+                                            Yeni
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('admin_order',['status'=>'Onaylandı'])}}" class="flex-c-m trans-04 p-lr-25">
+                                            Onaylandı
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('admin_order',['status'=>'Reddedildi'])}}" class="flex-c-m trans-04 p-lr-25">
+                                            Reddedildi
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
 
                     </ul>
                 </div>
