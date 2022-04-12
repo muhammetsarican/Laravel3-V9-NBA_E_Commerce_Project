@@ -42,7 +42,8 @@ class HomeController extends Controller
         return HomeController::getparent($data->parent_id);
     }
     public function index(){
-        return view('home.index');
+        $productlist=Product::Select('id','title','image','price','created_at')->orderByDesc('created_at')->inRandomOrder()->get();
+        return view('home.index',['productlist'=>$productlist]);
     }
     public function allproducts(){
         return view('home.all_products');

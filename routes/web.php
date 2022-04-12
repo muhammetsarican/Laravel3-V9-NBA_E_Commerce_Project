@@ -36,8 +36,6 @@ Route::get('/allproduct', [\App\Http\Controllers\HomeController::class, 'allprod
 
 Route::get('/logout', [\App\Http\Controllers\HomeController::class, 'logout'])->name('all_logout');
 Route::get('/user/login', [\App\Http\Controllers\UserController::class, 'login'])->name('user_login');
-Route::post('/user/logincheck2', [\App\Http\Controllers\UserController::class, 'userlogincheck'])->name('user_logincheck2');
-
 Route::get('/user/register', [\App\Http\Controllers\UserController::class, 'register'])->name('user_register');
 Route::post('/user/register/add', [\App\Http\Controllers\UserController::class, 'add'])->name('user_register_add');
 Route::post('/user/logincheck', [\App\Http\Controllers\UserController::class, 'logincheck'])->name('user_logincheck');
