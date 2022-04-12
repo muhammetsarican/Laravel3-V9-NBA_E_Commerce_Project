@@ -13,6 +13,7 @@
 
             <div class="row">
                 <div class="col-md-6 col-lg-7 p-b-30">
+                    @include('home.message')
                     <div class="p-l-25 p-r-30 p-lr-0-lg">
                         <div class="wrap-slick3 flex-sb flex-w">
                             <div class="wrap-slick3-dots"></div>
@@ -28,7 +29,6 @@
                                         </a>
                                     </div>
                                 </div>
-                                @include('home.message')
                                 @foreach($image as $im)
                                 <div class="item-slick3" data-thumb="{{\Illuminate\Support\Facades\Storage::url($im->image)}}">
                                     <div class="wrap-pic-w pos-relative">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="flex-w flex-r-m p-b-10">
                             <div class="size-204 flex-w flex-m respon6-next">
-                                <form role="form" action="{{route('admin_shopcart_add',['id'=>$data->id])}}" method="post">
+                                <form role="form" action="{{route('admin_shopcart_add',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                 <div class="wrap-num-product flex-w m-r-20 m-tb-10">
                                     <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">

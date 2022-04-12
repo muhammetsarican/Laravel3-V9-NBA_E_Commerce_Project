@@ -72,12 +72,8 @@
             </div>
 
             <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
-                <form role="form" action="{{route('user_register_add')}}" method="post" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('register') }}">
                     @csrf
-                    <div class="bor8 m-b-20 how-pos4-parent">
-                        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="file" name="photo" placeholder="Profil Fotosu Ekleyiniz">
-                        <img class="how-pos4 pointer-none" height=20px src="{{asset('assets')}}/images/icons/profile.png" alt="ICON">
-                    </div>
                     <div class="bor8 m-b-20 how-pos4-parent">
                         <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="name" placeholder="Adınız Soyadınız">
                         <img class="how-pos4 pointer-none" height=20px src="{{asset('assets')}}/images/icons/name.png" alt="ICON">
@@ -91,7 +87,7 @@
                         <img class="how-pos4 pointer-none" height=20px src="{{asset('assets')}}/images/icons/padlock.png" alt="ICON">
 {{--                    </div>--}}
 {{--                    <div class="bor8 m-b-20 how-pos4-parent">--}}
-                        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="psw" placeholder="Şifreniz Tekrar">
+                        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="password" name="password_confirmation" placeholder="Şifreniz Tekrar">
 {{--                        <img class="how-pos4 pointer-none" height=20px src="{{asset('assets')}}/images/icons/padlock.png" alt="ICON">--}}
                     </div>
 

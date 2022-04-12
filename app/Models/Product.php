@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\ShopcartController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -20,5 +21,9 @@ class Product extends Model
     public function order()
     {
         return $this->hasMany(Order::class);
+    }
+    public function shopcart()
+    {
+        return $this->hasMany(Shopcart::class);
     }
 }

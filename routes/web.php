@@ -35,8 +35,10 @@ Route::get('/allproduct', [\App\Http\Controllers\HomeController::class, 'allprod
 
 
 Route::get('/logout', [\App\Http\Controllers\HomeController::class, 'logout'])->name('all_logout');
-Route::get('/user_login', [\App\Http\Controllers\UserController::class, 'login'])->name('user_login');
-Route::get('/user_register', [\App\Http\Controllers\UserController::class, 'register'])->name('user_register');
+Route::get('/user/login', [\App\Http\Controllers\UserController::class, 'login'])->name('user_login');
+Route::post('/user/logincheck2', [\App\Http\Controllers\UserController::class, 'userlogincheck'])->name('user_logincheck2');
+
+Route::get('/user/register', [\App\Http\Controllers\UserController::class, 'register'])->name('user_register');
 Route::post('/user/register/add', [\App\Http\Controllers\UserController::class, 'add'])->name('user_register_add');
 Route::post('/user/logincheck', [\App\Http\Controllers\UserController::class, 'logincheck'])->name('user_logincheck');
 
@@ -52,8 +54,8 @@ Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(fu
 
 });
 Route::middleware('auth')->prefix('user')->namespace('user')->group(function () {
-    Route::get('/profile',[\App\Http\Controllers\UserController::class, 'index'])->name('userprofile');
-    //ShopcartController
+//    Route::get('/profile',[\App\Http\Controllers\UserController::class, 'index'])->name('userprofile');
+    //Shopcart
     Route::prefix('shopcart')->group(function () {
         Route::get('/', [\App\Http\Controllers\ShopcartController::class, 'index'])->name('admin_shopcart');
         Route::get('create', [\App\Http\Controllers\ShopcartController::class, 'create'])->name('admin_shopcart_add1');
@@ -62,6 +64,16 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
         Route::post('update/{id}', [\App\Http\Controllers\ShopcartController::class, 'update'])->name('admin_shopcart_update');
         Route::get('delete/{id}', [\App\Http\Controllers\ShopcartController::class, 'destroy'])->name('admin_shopcart_delete');
         Route::get('show', [\App\Http\Controllers\ShopcartController::class, 'show'])->name('admin_shopcart_show');
+    });
+    //Order
+    Route::prefix('order')->group(function () {
+        Route::get('/', [\App\Http\Controllers\OrderController::class, 'index'])->name('user_order');
+        Route::post('create', [\App\Http\Controllers\OrderController::class, 'create'])->name('user_order_add');
+        Route::post('store/{id}', [\App\Http\Controllers\OrderController::class, 'store'])->name('user_order_store');
+        Route::get('edit/{id}', [\App\Http\Controllers\OrderController::class, 'edit'])->name('user_order_edit');
+        Route::post('update/{id}', [\App\Http\Controllers\OrderController::class, 'update'])->name('user_order_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\OrderController::class, 'destroy'])->name('user_order_delete');
+        Route::get('show', [\App\Http\Controllers\OrderController::class, 'show'])->name('user_order_show');
     });
 });
 Route::middleware('auth')->prefix('admin')->group(function () {

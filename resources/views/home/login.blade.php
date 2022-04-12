@@ -69,7 +69,7 @@
 
                 <div class="size-210 bor10 flex-w flex-col-m p-lr-93 p-tb-30 p-lr-15-lg w-full-md">
                     @include('home.message')
-                    <form method="POST" action="{{ route('login') }}">
+                    <form role="form" action="{{route('login') }}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="bor8 m-b-20 how-pos4-parent">
                             <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Email Adresiniz">

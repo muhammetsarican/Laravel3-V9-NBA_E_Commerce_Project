@@ -14,6 +14,10 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public static function getphoto(){
+        $image=User::where('id',Auth::id())->first();
+        return $image->image;
+    }
     public function index()
     {
         return view('home.user_profile');
@@ -21,6 +25,14 @@ class UserController extends Controller
     public function login()
     {
         return view('home.login');
+    }
+    public function userlogincheck(Request $request){
+        $data=User::where('email',$request->input('email'))->first();
+        if($data->password==$request->input('password')){
+            return view('home.index');
+        }else{
+            return redirect()->back()->with('error','Geçersiz mail yada parola');
+        }
     }
     public function register()
     {
