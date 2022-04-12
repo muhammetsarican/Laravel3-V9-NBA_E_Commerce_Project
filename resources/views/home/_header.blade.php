@@ -1,3 +1,7 @@
+<?php
+$parentCategories = \App\Http\Controllers\HomeController::categorylist();
+//$setting = \App\Http\Controllers\HomeController::getsetting();
+?>
 <!-- Header -->
     <!-- Header desktop -->
     <div class="container-menu-desktop">
@@ -39,8 +43,60 @@
 
                         </li>
 
+
+
+
+
+
+
+
                         <li>
-                            <a href="{{route('allproducts')}}">Alışveriş</a>
+                            <ul class="main-menu">
+                                <li class="active-menu">
+                                    <a href="#">Kategoriler</a>
+                                    <ul class="sub-menu">
+                                        @foreach($parentCategories as $rs)
+                                        <li>
+                                            <a href="#" class="flex-c-m trans-04 p-lr-25">
+                                                {{$rs->title}}
+                                            </a>
+                                                <ul class="sub-menu">
+                                                    @if(count($rs->children))
+                                                        @include('home.categorytree',['children'=>$rs->children])
+                                                    @endif
+                                                </ul>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+{{--                        <li class="has-children">--}}
+{{--                            <a href="#" class="nav-link">Categories</a>--}}
+{{--                            <ul class="dropdown">--}}
+{{--                                @foreach($parentCategories as $rs)--}}
+{{--                                    <li class="has-children">--}}
+{{--                                        <a href="#">{{$rs->title}}</a>--}}
+{{--                                        <ul class="dropdown">--}}
+{{--                                            @if(count($rs->children))--}}
+{{--                                                @include('home.categorytree',['children'=>$rs->children])--}}
+{{--                                            @endif--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                @endforeach--}}
+{{--                                <li class="has-children1">--}}
+{{--                                    <a href="{{route('categoryalltreatments')}}">All</a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </li>--}}
+
+
+
+
+
+
+                        <li>
+                            <a href="{{route('allproduct')}}">Alışveriş</a>
                         </li>
 
                         <li>

@@ -2,11 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Image;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    public static function categorylist()
+    {
+        return Category::where('parent_id','=',0)->with('children')->get();
+    }
+    public function productdetail($id)
+    {
+        $data=Product::find($id);
+        $images=image::where('product_id',$id)->get();
+        $data=[
+            'data'=>$data,
+            'image'=>$images,
+        ];
+        return view('home.product_detail',$data);
+    }
+    public function allproduct()
+    {
+        $datalist=Product::all();
+        $data=Category::all();
+        return view('home.all_products',['data'=>$data,'datalist'=>$datalist]);
+    }
+    protected $appends=[
+        'getparent'
+    ];
+    public static function getparent($id){
+        $data=Category::find($id);
+
+        if($data->parent_id==0){
+           return $data->id;
+        }
+        return HomeController::getparent($data->parent_id);
+    }
     public function index(){
         return view('home.index');
     }

@@ -1,4 +1,3 @@
-
 @extends('layouts.home')
 @section('header')
     <header class="header-v4">
@@ -7,6 +6,38 @@
 @endsection
 
 @section('content')
+    <div class="slide-item overlay" style="background-image: url('{{asset('assets')}}/images/slider-2.jpg')">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-6 align-self-center">
+                    <h1 class="heading mb-3 text-white">{{$data->title}}</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                @foreach($datalist as $rs)
+                    <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
+                        <div class="service" style="height: 100%">
+                            <a href="{{route('product',['id'=>$rs->id])}}" class="d-block" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')">
+                                <img src="{{\Illuminate\Support\Facades\Storage::url($rs->image)}}" alt="Image" style="height: 250px;object-fit: cover" class="img-bg img-fluid">
+                            </a>
+                            <div class="service-inner" style="height: 150px">
+                                <h3>{{$rs->title}}</h3>
+                                <p>{{$rs->price}}&nbsp;$</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+
+
+
 
     <div class="bg0 m-t-23 p-b-140">
         <div class="container">
@@ -16,20 +47,24 @@
                         All Products
                     </button>
 
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".1">
-                        Kadın Giyim
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+                        Women
                     </button>
 
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".2">
-                        Erkek Giyim
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
+                        Men
                     </button>
 
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".3">
-                        Çocuk Giyim
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+                        Bag
                     </button>
 
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".4">
-                        Aksesuar
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+                        Shoes
+                    </button>
+
+                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+                        Watches
                     </button>
                 </div>
 
@@ -249,15 +284,13 @@
             </div>
 
             <div class="row isotope-grid">
-                @foreach($datalist as $rs)
-
-                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item @if ($rs->category_id!=0){{\App\Http\Controllers\HomeController::getparent($rs->category_id)}}@endif">
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
                     <!-- Block2 -->
                     <div class="block2">
                         <div class="block2-pic hov-img0">
-                            <img src="{{\Illuminate\Support\Facades\Storage::url($rs->image)}}" alt="IMG-PRODUCT" style="object-fit: cover">
+                            <img src="{{asset('assets')}}/images/product-01.jpg" alt="IMG-PRODUCT">
 
-                            <a href="{{route('productdetail',['id'=>$rs->id])}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" data-filter=".1">
+                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                 Quick View
                             </a>
                         </div>
@@ -265,11 +298,11 @@
                         <div class="block2-txt flex-w flex-t p-t-14">
                             <div class="block2-txt-child1 flex-col-l ">
                                 <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                    {{$rs->title}}
+                                    Esprit Ruffle Shirt
                                 </a>
 
                                 <span class="stext-105 cl3">
-									${{$rs->price}}
+									$16.64
 								</span>
                             </div>
 
@@ -282,7 +315,102 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
+                    <!-- Block2 -->
+                    <div class="block2">
+                        <div class="block2-pic hov-img0">
+                            <img src="{{asset('assets')}}/images/product-03.jpg" alt="IMG-PRODUCT">
+
+                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                Quick View
+                            </a>
+                        </div>
+
+                        <div class="block2-txt flex-w flex-t p-t-14">
+                            <div class="block2-txt-child1 flex-col-l ">
+                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                    Only Check Trouser
+                                </a>
+
+                                <span class="stext-105 cl3">
+									$25.50
+								</span>
+                            </div>
+
+                            <div class="block2-txt-child2 flex-r p-t-3">
+                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                    <img class="icon-heart1 dis-block trans-04" src="{{asset('assets')}}/images/icons/icon-heart-01.png" alt="ICON">
+                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{asset('assets')}}/images/icons/icon-heart-02.png" alt="ICON">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
+                    <!-- Block2 -->
+                    <div class="block2">
+                        <div class="block2-pic hov-img0">
+                            <img src="{{asset('assets')}}/images/product-06.jpg" alt="IMG-PRODUCT">
+
+                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                Quick View
+                            </a>
+                        </div>
+
+                        <div class="block2-txt flex-w flex-t p-t-14">
+                            <div class="block2-txt-child1 flex-col-l ">
+                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                    Vintage Inspired Classic
+                                </a>
+
+                                <span class="stext-105 cl3">
+									$93.20
+								</span>
+                            </div>
+
+                            <div class="block2-txt-child2 flex-r p-t-3">
+                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                    <img class="icon-heart1 dis-block trans-04" src="{{asset('assets')}}/images/icons/icon-heart-01.png" alt="ICON">
+                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{asset('assets')}}/images/icons/icon-heart-02.png" alt="ICON">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item shoes">
+                    <!-- Block2 -->
+                    <div class="block2">
+                        <div class="block2-pic hov-img0">
+                            <img src="{{asset('assets')}}/images/product-09.jpg" alt="IMG-PRODUCT">
+
+                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                Quick View
+                            </a>
+                        </div>
+
+                        <div class="block2-txt flex-w flex-t p-t-14">
+                            <div class="block2-txt-child1 flex-col-l ">
+                                <a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                    Converse All Star Hi Plimsolls
+                                </a>
+
+                                <span class="stext-105 cl3">
+									$75.00
+								</span>
+                            </div>
+
+                            <div class="block2-txt-child2 flex-r p-t-3">
+                                <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+                                    <img class="icon-heart1 dis-block trans-04" src="{{asset('assets')}}/images/icons/icon-heart-01.png" alt="ICON">
+                                    <img class="icon-heart2 dis-block trans-04 ab-t-l" src="{{asset('assets')}}/images/icons/icon-heart-02.png" alt="ICON">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
@@ -294,11 +422,4 @@
             </div>
         </div>
     </div>
-
-    <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-        Quick View
-    </a>
-
-
-
 @endsection
