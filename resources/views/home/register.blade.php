@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>@yield('title')</title>
+    <title>@yield('title','Kayıt Ol')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -65,7 +65,7 @@
 							</span>
 
                         <p class="stext-115 cl1 size-115 p-t-18">
-                            contact@example.com
+                            cerenbulut@gmail.com
                         </p>
                     </div>
                 </div>

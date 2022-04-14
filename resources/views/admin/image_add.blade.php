@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>@yield('title')</title>
+    <title>@yield('title','Resim Galerisi')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -51,7 +51,7 @@
         <!-- breadcrumb -->
         <div class="container">
             <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-                <a href="{{route('admin_product',['id'=>$data->id])}}" class="stext-109 cl8 hov-cl1 trans-04">
+                <a href="{{route('admin_image_add',['product_id'=>$data->id])}}" class="stext-109 cl8 hov-cl1 trans-04">
                     Ürünler
                     <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
                 </a>

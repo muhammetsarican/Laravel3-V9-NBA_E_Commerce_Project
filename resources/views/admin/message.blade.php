@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Siparişler')
+@section('title','Mesajlar')
 
 @section('description')
 @endsection
@@ -20,7 +20,7 @@
             </a>
 
             <span class="stext-109 cl4">
-				Siparişler &nbsp;>&nbsp;{{$status}}
+				Mesajlar
 			</span>
         </div>
     </div>
@@ -29,7 +29,7 @@
     <!-- Shoping Cart -->
     <section>
         <h4 class="mtext-105 cl2 txt-center p-b-30">
-            Siparişler
+            Mesajlar
         </h4>
         <div class="container">
             <div class="row">
@@ -39,28 +39,24 @@
                             <table class="table-shopping-cart table-bordered">
                                 <tr class="table_head">
                                     <th class="column-1">Id</th>
-                                    <th class="column-1">Alıcı</th>
-                                    <th class="column-1">Ürün</th>
-                                    <th class="column-1">Satıcı</th>
-                                    <th class="column-1">Sipariş Tarihi</th>
-                                    <th class="column-1">Adet</th>
-                                    <th class="column-1">Fiyat</th>
-                                    <th class="column-1">Ödeme Yöntemi</th>
+                                    <th class="column-1">Adı</th>
+                                    <th class="column-1">E-Posta</th>
+                                    <th class="column-1">Konu Başlığı</th>
+                                    <th class="column-1">Not</th>
+                                    <th class="column-1">Tarih</th>
                                     <th class="column-1">Durum</th>
                                     <th class="column-1">Düzenle</th>
                                 </tr>
-                                @foreach($datalist as $dl)
+                                @foreach($messagelist as $dl)
                                     <tr style="height: 55px">
                                         <td class="column-1">{{$dl->id}}</td>
-                                        <td class="column-1">{{$dl->user->name}}</td>
-                                        <td class="column-1">{{$dl->product->title}}</td>
-                                        <td class="column-1">{{$dl->product->user->name}}</td>
-                                        <td class="column-1">{{$dl->order_date}}</td>
-                                        <td class="column-1">{{$dl->total}}</td>
-                                        <td class="column-1">{{$dl->price}} $</td>
-                                        <td class="column-1">{{$dl->payment}}</td>
+                                        <td class="column-1">{{$dl->name}}</td>
+                                        <td class="column-1">{{$dl->email}}</td>
+                                        <td class="column-1">{{$dl->subject}}</td>
+                                        <td class="column-1">{!! $dl->note !!}</td>
+                                        <td class="column-1">{{$dl->created_at}}</td>
                                         <td class="column-1">{{$dl->status}}</td>
-                                        <td class="column-1"><a href="{{route('admin_order_edit',['id'=>$dl->id])}}" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')"><img src="{{asset('assets')}}/images/icons/edit.png"> </a></td>
+                                        <td class="column-1"><a href="{{route('admin_message_edit',['id'=>$dl->id])}}" onclick="return !window.open(this.href, '','top=50 left=50 height=1150 width=750')"><img src="{{asset('assets')}}/images/icons/edit.png"> </a></td>
                                     </tr>
                                 @endforeach
                             </table>

@@ -7,20 +7,20 @@
                 <div class="block1 wrap-pic-w">
                     <img src="{{asset('assets')}}/images/banner-01.jpg" alt="IMG-BANNER" style="min-height: 275px;object-fit: cover">
 
-                    <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                    <a href="{{route('allproduct')}}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Women
+									Kadın
 								</span>
 
                             <span class="block1-info stext-102 trans-04">
-									Spring 2018
+									Sonbahar 2022
 								</span>
                         </div>
 
                         <div class="block1-txt-child2 p-b-4 trans-05">
                             <div class="block1-link stext-101 cl0 trans-09">
-                                Shop Now
+                                Hemen Al
                             </div>
                         </div>
                     </a>
@@ -32,20 +32,20 @@
                 <div class="block1 wrap-pic-w">
                     <img src="{{asset('assets')}}/images/banner-02.jpg" alt="IMG-BANNER" style="min-height: 275px;object-fit: cover">
 
-                    <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                    <a href="{{route('allproduct')}}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Men
+									Erkek
 								</span>
 
                             <span class="block1-info stext-102 trans-04">
-									Spring 2018
+									Sonbahar 2022
 								</span>
                         </div>
 
                         <div class="block1-txt-child2 p-b-4 trans-05">
                             <div class="block1-link stext-101 cl0 trans-09">
-                                Shop Now
+                                Hemen Al
                             </div>
                         </div>
                     </a>
@@ -57,20 +57,20 @@
                 <div class="block1 wrap-pic-w">
                     <img src="{{asset('assets')}}/images/banner-03.jpg" alt="IMG-BANNER" style="min-height: 275px;object-fit: cover">
 
-                    <a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                    <a href="{{route('allproduct')}}" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
                         <div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Accessories
+									Aksesuar
 								</span>
 
                             <span class="block1-info stext-102 trans-04">
-									New Trend
+									Yeni Trend
 								</span>
                         </div>
 
                         <div class="block1-txt-child2 p-b-4 trans-05">
                             <div class="block1-link stext-101 cl0 trans-09">
-                                Shop Now
+                                Hemen Al
                             </div>
                         </div>
                     </a>

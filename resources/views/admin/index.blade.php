@@ -1,4 +1,10 @@
 @extends('layouts.admin')
+@section('title','Admin Anasayfa')
+
+@section('description')
+@endsection
+
+@section('keywords')
 @section('header')
     <header class="header-v4">
         @include('admin._header')
@@ -25,14 +31,6 @@
 
                             NBA'in resmî logosunda eski Los Angeles Lakers'lı oyuncu Jerry West'in silüeti bulunmaktadır.
                         </p>
-
-                        {{--<p class="stext-113 cl6 p-b-26">
-                            Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac ligula.
-                        </p>
-
-                        <p class="stext-113 cl6 p-b-26">
-                            Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
-                        </p>--}}
                     </div>
                 </div>
 

@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home_index');
 
+// Yönlendirmelerin yapıldığı sayfadır örnek olarak bir sayfadan {{route('home_index')}} ile yönlendirme yapılırsa önce
+// bu sayfaya yönlendirilir sonrada sonunda name('home_index') fonksiyon tarafından ilgili controllera yönlendirilir.
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -31,7 +34,8 @@ Route::get('/contact', [\App\Http\Controllers\HomeController::class, 'contact'])
 Route::get('/productdetail/{id}', [\App\Http\Controllers\HomeController::class, 'productdetail'])->name('productdetail');
 Route::get('/product/{id}', [\App\Http\Controllers\HomeController::class, 'product'])->name('product');
 Route::get('/allproduct', [\App\Http\Controllers\HomeController::class, 'allproduct'])->name('allproduct');
-
+Route::post('/sendmessage', [\App\Http\Controllers\HomeController::class, 'sendmessage'])->name('home_sendmessage');
+Route::post('/getproduct', [\App\Http\Controllers\HomeController::class, 'getproduct'])->name('getproduct');
 
 
 Route::get('/logout', [\App\Http\Controllers\HomeController::class, 'logout'])->name('all_logout');
@@ -129,6 +133,13 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             Route::post('store/{product_id}', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name('admin_image_store');
             Route::get('delete/{id},{product_id}', [\App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('admin_image_delete');
             Route::get('show', [\App\Http\Controllers\Admin\ImageController::class, 'show'])->name('admin_image_show');
+        });
+        //Message
+        Route::prefix('messages')->group(function () {
+            Route::get('/{status}', [\App\Http\Controllers\Admin\MessageController::class, 'index'])->name('admin_message');
+            Route::get('edit/{id}', [\App\Http\Controllers\Admin\MessageController::class, 'edit'])->name('admin_message_edit');
+            Route::post('update/{id}', [\App\Http\Controllers\Admin\MessageController::class, 'update'])->name('admin_message_update');
+            Route::get('delete/{id}', [\App\Http\Controllers\Admin\MessageController::class, 'destroy'])->name('admin_message_delete');
         });
     });
 });

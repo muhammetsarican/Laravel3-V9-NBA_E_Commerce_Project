@@ -4,31 +4,31 @@
         <div class="row">
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Categories
+                    Kategoriler
                 </h4>
 
                 <ul>
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Women
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Kadın
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Men
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Erkek
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shoes
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Çocuk
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Watches
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Aksesuar
                         </a>
                     </li>
                 </ul>
@@ -36,31 +36,31 @@
 
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    Help
+                    Ürünler
                 </h4>
 
                 <ul>
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Track Order
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Hoodie
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Returns
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            T-Shirt
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Shipping
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Top
                         </a>
                     </li>
 
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            FAQs
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Forma
                         </a>
                     </li>
                 </ul>
@@ -68,11 +68,43 @@
 
             <div class="col-sm-6 col-lg-3 p-b-50">
                 <h4 class="stext-301 cl0 p-b-30">
-                    GET IN TOUCH
+                    Aksesuar
+                </h4>
+
+                <ul>
+                    <li class="p-b-10">
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Şapka
+                        </a>
+                    </li>
+
+                    <li class="p-b-10">
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Şort
+                        </a>
+                    </li>
+
+                    <li class="p-b-10">
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Ceket
+                        </a>
+                    </li>
+
+                    <li class="p-b-10">
+                        <a href="{{route('allproduct')}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            Mont
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-sm-6 col-lg-3 p-b-50">
+                <h4 class="stext-301 cl0 p-b-30">
+                    İletişimde Kalın
                 </h4>
 
                 <p class="stext-107 cl7 size-201">
-                    Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+                    Sorularınız için bize "Bize Ulaşın" bölümünden formu doldurarak ulaşabilirsiniz.
                 </p>
 
                 <div class="p-t-27">
@@ -90,24 +122,6 @@
                 </div>
             </div>
 
-            <div class="col-sm-6 col-lg-3 p-b-50">
-                <h4 class="stext-301 cl0 p-b-30">
-                    Newsletter
-                </h4>
-
-                <form>
-                    <div class="wrap-input1 w-full p-b-4">
-                        <input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
-                        <div class="focus-input1 trans-04"></div>
-                    </div>
-
-                    <div class="p-t-18">
-                        <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
-                            Subscribe
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
 
         <div class="p-t-40">

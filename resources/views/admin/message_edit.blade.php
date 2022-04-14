@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>@yield('title','Kullanıcı Düzenle')</title>
+    <title>@yield('title')Mesaj Düzenle</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -51,8 +51,8 @@
         <!-- breadcrumb -->
         <div class="container">
             <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-                <a href="{{route('admin_user_edit',['id'=>$data->id])}}" class="stext-109 cl8 hov-cl1 trans-04">
-                    Kullanıcılar
+                <a href="{{route('admin_message_edit',['id'=>$data->id])}}" class="stext-109 cl8 hov-cl1 trans-04">
+                    Mesajlar
                     <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
                 </a>
                 <span class="stext-109 cl4">
@@ -65,40 +65,44 @@
             <div class="row flex-w flex-tr">
                 <div class="col-xl-12 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
                     @include('home.message')
-                    <form role="form" action="{{route('admin_user_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
+                    <form role="form" action="{{route('admin_message_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <h4 class="mtext-105 cl2 txt-center p-b-30">
-                            Kullanıcı Düzenle
+                            Mesaj Düzenle
                         </h4>
                         <div class="bor8 m-b-20 how-pos4-parent">
-                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" placeholder="Adı Soyadı" name="name" value="{{$data->name}}">
+                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" value="Id: {{$data->id}}">
                         </div>
                         <div class="bor8 m-b-20 how-pos4-parent">
-                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" placeholder="E-Posta" name="email" value="{{$data->email}}">
+                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" value="Adı: {{$data->name}}">
                         </div>
                         <div class="bor8 m-b-20 how-pos4-parent">
-                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="phone" placeholder="Telefon" value="{{$data->phone}}">
+                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" value="Telefon: {{$data->phone}}">
                         </div>
                         <div class="bor8 m-b-20 how-pos4-parent">
-                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="address" placeholder="Adres" value="{{$data->address}}">
+                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" value="email: {{$data->email}}">
                         </div>
                         <div class="bor8 m-b-20 how-pos4-parent">
-                            <label>Roles</label>
-                            @foreach($data->roles as $row)
-                                <p class="form-control">
-                                    {{$row->name}}
-                                </p>
-                            @endforeach
+                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" value="Konu Başlığı: {{$data->subject}}">
                         </div>
                         <div class="bor8 m-b-20 how-pos4-parent">
-                            Fotoğraf
-                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="file" name="image">
-                            @if($data->profile_photo_path)
-                                <img src="{{\Illuminate\Support\Facades\Storage::url($data->profile_photo_path)}}"
-                                     height="200" style="border-radius: 10px" alt="">
-                            @endif
+                            <textarea class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30">Mesaj: {{$data->message}}</textarea>
                         </div>
-
+                        <div class="bor8 m-b-20 how-pos4-parent">
+                            <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" value="Tarih: {{$data->created_at}}">
+                        </div>
+                        <div class="bor8 m-b-20 how-pos4-parent">
+                            <textarea id="summernote" name="note">{{$data->note}}</textarea>
+                            <script>
+                                $(document).ready(function() {
+                                    $('#summernote').summernote({
+                                        placeholder: 'Not Ekleyin',
+                                        tabsize: 2,
+                                        height: 120,
+                                    });
+                                });
+                            </script>
+                        </div>
                         <button class="size-101 flex-c-m stext-101 cl0 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
                             Kaydet
                         </button>
@@ -106,30 +110,18 @@
                     <table class="table-shopping-cart table-bordered">
                         <tr class="table_head">
                             <th class="column-1">Id</th>
-                            <th class="column-1">Fotoğraf</th>
-                            <th class="column-1">Adı Soyadı</th>
-                            <th class="column-1">Rol</th>
+                            <th class="column-1">Konu Başlığı</th>
+                            <th class="column-1">Admin Notu</th>
+                            <th class="column-1">Durum</th>
                             <th class="column-1">Düzenle</th>
-                            <th class="column-1">Sil</th>
                         </tr>
                         @foreach($datalist as $dl)
                             <tr style="height: 55px">
                                 <td class="column-1">{{$dl->id}}</td>
-                                <td class="column-1">
-                                    @if($dl->profile_photo_path)
-                                        <img
-                                            src="{{\Illuminate\Support\Facades\Storage::url($dl->profile_photo_path)}}"
-                                            height="50" style="border-radius: 10px" alt="">
-                                    @endif
-                                </td>
-                                <td class="column-1">{{$dl->name}}</td>
-                                <td class="column-1">
-                                    @foreach($dl->roles as $row)
-                                        {{$row->name}},
-                                    @endforeach
-                                </td>
-                                <td class="column-1"><a href="{{route('admin_user_edit',['id'=>$dl->id])}}"><img src="{{asset('assets')}}/images/icons/edit.png"> </a></td>
-                                <td class="column-1"><a href="{{route('admin_user_delete',['id'=>$dl->id])}}" onclick="return confirm('Delete! Are you sure ?')"><img src="{{asset('assets')}}/images/icons/delete.png"> </a></td>
+                                <td class="column-1">{{$dl->subject}}</td>
+                                <td class="column-1">{!! $dl->note !!}</td>
+                                <td class="column-1">{{$dl->status}}</td>
+                                <td class="column-1"><a href="{{route('admin_message_edit',['id'=>$dl->id])}}"><img src="{{asset('assets')}}/images/icons/edit.png"> </a></td>
                             </tr>
                         @endforeach
                     </table>

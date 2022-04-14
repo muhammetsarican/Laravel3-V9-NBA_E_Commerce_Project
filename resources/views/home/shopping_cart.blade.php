@@ -3,6 +3,12 @@ $countshopcart=\App\Http\Controllers\ShopcartController::countshopcart();
 $gettotal=\App\Http\Controllers\ShopcartController::gettotal();
 ?>
 @extends('layouts.home')
+@section('title','Sepetim')
+
+@section('description')
+@endsection
+
+@section('keywords')
 @section('header')
     <header class="header-v4">
         @include('home._header')
@@ -12,7 +18,7 @@ $gettotal=\App\Http\Controllers\ShopcartController::gettotal();
     <!-- breadcrumb -->
     <div class="container">
         <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-            <a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+            <a href="{{route('home_index')}}" class="stext-109 cl8 hov-cl1 trans-04">
                 Anasayfa
                 <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
             </a>

@@ -1,5 +1,10 @@
 @extends('layouts.home')
+@section('title','Nba Store Anasayfa')
 
+@section('description')
+@endsection
+
+@section('keywords')
 @section('slider')
     @include('home._slider')
     @include('home._banner')
@@ -10,7 +15,7 @@
         <div class="container">
             <div class="p-b-32">
                 <h3 class="ltext-105 cl5 txt-center respon1">
-                    Store Overview
+                    Ürünlerimiz
                 </h3>
             </div>
 
@@ -19,19 +24,19 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item p-b-10">
-                        <a class="nav-link active" data-toggle="tab" href="#best-seller" role="tab">Best Seller</a>
+                        <a class="nav-link active" data-toggle="tab" href="#best-seller" role="tab">Çok Satan</a>
                     </li>
 
                     <li class="nav-item p-b-10">
-                        <a class="nav-link" data-toggle="tab" href="#featured" role="tab">Featured</a>
+                        <a class="nav-link" data-toggle="tab" href="#featured" role="tab">Önerilen</a>
                     </li>
 
                     <li class="nav-item p-b-10">
-                        <a class="nav-link" data-toggle="tab" href="#sale" role="tab">Sale</a>
+                        <a class="nav-link" data-toggle="tab" href="#sale" role="tab">En Çok Yorum Alan</a>
                     </li>
 
                     <li class="nav-item p-b-10">
-                        <a class="nav-link" data-toggle="tab" href="#top-rate" role="tab">Top Rate</a>
+                        <a class="nav-link" data-toggle="tab" href="#top-rate" role="tab">En Çok Beğenilen</a>
                     </li>
                 </ul>
 
@@ -42,6 +47,9 @@
                         <!-- Slide2 -->
                         <div class="wrap-slick2">
                             <div class="slick2">
+                                {{--Son olarak home/index.php geliriz '$productlist' değişkeni içerisindeki database sorgusundan gelen veriler
+                                bir döngü içerisinde ekrana çıktı olarak verilir.
+                                Genel olarak her sayfadaki döngü bu şekildedir. --}}
                                 @foreach($productlist as $pl)
                                 <div class="item-slick2 p-l-15 p-r-15 p-t-15 p-b-15">
                                     <!-- Block2 -->
@@ -49,7 +57,7 @@
                                         <div class="block2-pic hov-img0">
                                             <img src="{{\Illuminate\Support\Facades\Storage::url($pl->image)}}" alt="IMG-PRODUCT">
 
-                                            <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                            <a href="{{route('productdetail',['id'=>$pl->id])}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                                 Quick View
                                             </a>
                                         </div>
@@ -91,7 +99,7 @@
                                             <div class="block2-pic hov-img0">
                                                 <img src="{{\Illuminate\Support\Facades\Storage::url($pl->image)}}" alt="IMG-PRODUCT">
 
-                                                <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                                <a href="{{route('productdetail',['id'=>$pl->id])}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                                     Quick View
                                                 </a>
                                             </div>
@@ -133,7 +141,7 @@
                                             <div class="block2-pic hov-img0">
                                                 <img src="{{\Illuminate\Support\Facades\Storage::url($pl->image)}}" alt="IMG-PRODUCT">
 
-                                                <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                                <a href="{{route('productdetail',['id'=>$pl->id])}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                                     Quick View
                                                 </a>
                                             </div>
@@ -175,7 +183,7 @@
                                             <div class="block2-pic hov-img0">
                                                 <img src="{{\Illuminate\Support\Facades\Storage::url($pl->image)}}" alt="IMG-PRODUCT">
 
-                                                <a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                                                <a href="{{route('productdetail',['id'=>$pl->id])}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                                                     Quick View
                                                 </a>
                                             </div>
@@ -214,56 +222,14 @@
         <div class="container">
             <div class="p-b-66">
                 <h3 class="ltext-105 cl5 txt-center respon1">
-                    Our Blogs
+                    Mesajlar
                 </h3>
             </div>
 
-            <div class="row">
-                <div class="col-sm-6 col-md-4 p-b-40">
-                    <div class="blog-item">
-                        <div class="hov-img0">
-                            <a href="blog-detail.html">
-                                <img src="{{asset('assets')}}/images/blog-01.jpg" alt="IMG-BLOG">
-                            </a>
-                        </div>
-
-                        <div class="p-t-15">
-                            <div class="stext-107 flex-w p-b-14">
-								<span class="m-r-3">
-									<span class="cl4">
-										By
-									</span>
-
-									<span class="cl5">
-										Nancy Ward
-									</span>
-								</span>
-
-                                <span>
-									<span class="cl4">
-										on
-									</span>
-
-									<span class="cl5">
-										July 22, 2017
-									</span>
-								</span>
-                            </div>
-
-                            <h4 class="p-b-12">
-                                <a href="blog-detail.html" class="mtext-101 cl2 hov-cl1 trans-04">
-                                    8 Inspiring Ways to Wear Dresses in the Winter
-                                </a>
-                            </h4>
-
-                            <p class="stext-108 cl6">
-                                Duis ut velit gravida nibh bibendum commodo. Suspendisse pellentesque mattis augue id euismod. Interdum et male-suada fames
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-6 col-md-4 p-b-40">
+            <div class="wrap-slick2">
+            <div class="row slick2">
+                @foreach($messagelist as $ml)
+                <div class="item-slick2 col-sm-6 col-md-4 p-b-40">
                     <div class="blog-item">
                         <div class="hov-img0">
                             <a href="blog-detail.html">
@@ -279,7 +245,7 @@
 									</span>
 
 									<span class="cl5">
-										Nancy Ward
+										{{$ml->name}}
 									</span>
 								</span>
 
@@ -289,68 +255,26 @@
 									</span>
 
 									<span class="cl5">
-										July 18, 2017
+										{{$ml->created_at}}
 									</span>
 								</span>
                             </div>
 
                             <h4 class="p-b-12">
-                                <a href="blog-detail.html" class="mtext-101 cl2 hov-cl1 trans-04">
-                                    The Great Big List of Men’s Gifts for the Holidays
+                                <a href="#" class="mtext-101 cl2 hov-cl1 trans-04">
+                                    {{$ml->subject}}
                                 </a>
                             </h4>
 
                             <p class="stext-108 cl6">
-                                Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit ame
+                                {{$ml->message}}
                             </p>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-sm-6 col-md-4 p-b-40">
-                    <div class="blog-item">
-                        <div class="hov-img0">
-                            <a href="blog-detail.html">
-                                <img src="{{asset('assets')}}/images/blog-03.jpg" alt="IMG-BLOG">
-                            </a>
-                        </div>
-
-                        <div class="p-t-15">
-                            <div class="stext-107 flex-w p-b-14">
-								<span class="m-r-3">
-									<span class="cl4">
-										By
-									</span>
-
-									<span class="cl5">
-										Nancy Ward
-									</span>
-								</span>
-
-                                <span>
-									<span class="cl4">
-										on
-									</span>
-
-									<span class="cl5">
-										July 2, 2017
-									</span>
-								</span>
-                            </div>
-
-                            <h4 class="p-b-12">
-                                <a href="blog-detail.html" class="mtext-101 cl2 hov-cl1 trans-04">
-                                    5 Winter-to-Spring Fashion Trends to Try Now
-                                </a>
-                            </h4>
-
-                            <p class="stext-108 cl6">
-                                Proin nec vehicula lorem, a efficitur ex. Nam vehicula nulla vel erat tincidunt, sed hendrerit ligula porttitor. Fusce sit amet maximus nunc
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
+        </div>
         </div>
     </section>
 @endsection

@@ -1,4 +1,10 @@
 @extends('layouts.admin')
+@section('title','Kategori Düzenle')
+
+@section('description')
+@endsection
+
+@section('keywords')
 @section('header')
     <header class="header-v4">
         @include('admin._header')

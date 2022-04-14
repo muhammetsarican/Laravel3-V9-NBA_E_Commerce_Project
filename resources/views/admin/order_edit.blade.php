@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>@yield('title')</title>
+    <title>@yield('title')Sipariş Düzenle</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -52,7 +52,7 @@
         <div class="container">
             <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
                 <a href="{{route('admin_order_edit',['id'=>$data->id])}}" class="stext-109 cl8 hov-cl1 trans-04">
-                    Siparişlerim
+                    Siparişler
                     <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
                 </a>
                 <span class="stext-109 cl4">
@@ -120,6 +120,8 @@
                     <table class="table-shopping-cart table-bordered">
                         <tr class="table_head">
                             <th class="column-1">Id</th>
+                            <th class="column-1">Alıcı</th>
+                            <th class="column-1">Ürün</th>
                             <th class="column-1">Admin Notu</th>
                             <th class="column-1">Durum</th>
                             <th class="column-1">Düzenle</th>
@@ -127,6 +129,8 @@
                         @foreach($datalist as $dl)
                             <tr style="height: 55px">
                                 <td class="column-1">{{$dl->id}}</td>
+                                <td class="column-1">{{$dl->user->name}}</td>
+                                <td class="column-1">{{$dl->product->title}}</td>
                                 <td class="column-1">{{$dl->note}}</td>
                                 <td class="column-1">{{$dl->status}}</td>
                                 <td class="column-1"><a href="{{route('admin_order_edit',['id'=>$dl->id])}}"><img src="{{asset('assets')}}/images/icons/edit.png"> </a></td>
