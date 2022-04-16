@@ -1,5 +1,6 @@
+
 @extends('layouts.home')
-@section('title','Alışveriş')
+@section('title','Arama Sonuçları "'.$search.'"')
 
 @section('description')
 @endsection
@@ -21,11 +22,15 @@
                 </a>
 
                 <span class="stext-109 cl4">
-				Alışveriş
+				Arama Sonuçları: "{{$search}}"
 			</span>
             </div>
         </div>
+        <br>
 
+        <h4 class="mtext-105 cl2 txt-center p-b-30">
+            Arama Sonuçları:<br>"{{$search}}"
+        </h4>
         <div class="bg0 m-t-23 p-b-140">
             <div class="container">
                 <div class="flex-w flex-sb-m p-b-52">
@@ -52,8 +57,7 @@
                     </div>
 
                     <div class="flex-w flex-c-m m-tb-10">
-                        <div
-                            class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
+                        <div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
                             <i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
                             <i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
                             Ara
@@ -62,35 +66,30 @@
 
                     <!-- Search product -->
                     <div class="dis-none panel-search w-full p-t-10 p-b-15">
-                    <form action="{{route('getproduct')}}" method="post" class="nav-link">
-                        @csrf
-                        <div class="bor8 dis-flex p-l-15">
-                        <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+                        <form action="{{route('getproduct')}}" method="post" class="nav-link">
+                            @csrf
+                            <div class="bor8 dis-flex p-l-15">
+                                <button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                                 @livewire('search')
                             </div>
-                    </form>
-
-                    @livewireScripts
+                        </form>
+                        @livewireScripts
                     </div>
-
 
                 </div>
 
                 <div class="row isotope-grid">
                     @foreach($datalist as $rs)
 
-                        <div
-                            class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item @if ($rs->category_id!=0){{\App\Http\Controllers\HomeController::getparent($rs->category_id)}}@endif">
+                        <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{\App\Http\Controllers\HomeController::getparent($rs->category_id)}}">
                             <!-- Block2 -->
                             <div class="block2">
                                 <div class="block2-pic hov-img0">
-                                    <img src="{{\Illuminate\Support\Facades\Storage::url($rs->image)}}"
-                                         alt="IMG-PRODUCT" style="object-fit: cover">
+                                    <img src="{{\Illuminate\Support\Facades\Storage::url($rs->image)}}" alt="IMG-PRODUCT" style="object-fit: cover">
 
-                                    <a href="{{route('productdetail',['id'=>$rs->id])}}"
-                                       class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+                                    <a href="{{route('productdetail',['id'=>$rs->id])}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
                                         İncele
                                     </a>
                                 </div>
@@ -110,10 +109,10 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
-
             </div>
         </div>
+
+
 
     @endsection

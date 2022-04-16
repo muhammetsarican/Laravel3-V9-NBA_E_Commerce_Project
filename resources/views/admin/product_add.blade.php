@@ -44,7 +44,6 @@
                     </h4>
                     <div class="bor8 m-b-20 how-pos4-parent">
                         <select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="category_id" style="width: 100%">
-                            <option value="0"selected="selected">Ana Kategori</option>
                             @foreach($datalist as $rs)
                                 <option value="{{$rs->id}}">
                                     {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}

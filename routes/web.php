@@ -36,6 +36,7 @@ Route::get('/product/{id}', [\App\Http\Controllers\HomeController::class, 'produ
 Route::get('/allproduct', [\App\Http\Controllers\HomeController::class, 'allproduct'])->name('allproduct');
 Route::post('/sendmessage', [\App\Http\Controllers\HomeController::class, 'sendmessage'])->name('home_sendmessage');
 Route::post('/getproduct', [\App\Http\Controllers\HomeController::class, 'getproduct'])->name('getproduct');
+Route::get('/productlist/{search}', [\App\Http\Controllers\HomeController::class, 'productlist'])->name('productlist');
 
 
 Route::get('/logout', [\App\Http\Controllers\HomeController::class, 'logout'])->name('all_logout');

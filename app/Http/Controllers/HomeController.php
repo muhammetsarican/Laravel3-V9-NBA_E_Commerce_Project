@@ -28,23 +28,23 @@ class HomeController extends Controller
     }
     public function allproduct()
     {
-        $datalist=Product::all();
+        $datalist=Product::where('stock','>',0)->get();
         $data=Category::all();
         return view('home.all_products',['data'=>$data,'datalist'=>$datalist]);
     }
     public function getproduct(Request $request)
     {
         $search=$request->input('search');
-        $count=Product::where('title','like','%'.$search.'%')->get()->count();
-        if ($count==1)
-        {
-            $data=Product::where('title',$request->input('search'))->first();
-            return redirect()->route('product',['id'=>$data->id]);
-        }
-        else
-        {
+        if(empty($search)){
+            return back();
+        }else{
             return redirect()->route('productlist',['search'=>$search]);
         }
+    }
+    public function productlist($search)
+    {
+        $datalist=Product::where('title','like','%'.$search.'%')->get();
+        return view('home.search_product',['search'=>$search,'datalist'=>$datalist]);
     }
     protected $appends=[
         'getparent'

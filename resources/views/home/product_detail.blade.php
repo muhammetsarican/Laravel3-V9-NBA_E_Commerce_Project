@@ -72,21 +72,16 @@
                                     <form role="form" action="{{route('admin_shopcart_add',['id'=>$data->id])}}"
                                           method="post" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="wrap-num-product flex-w m-r-20 m-tb-10">
-                                            <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                                <i class="fs-16 zmdi zmdi-minus"></i>
-                                            </div>
-
-                                            <input class="mtext-104 cl3 txt-center num-product" type="number"
-                                                   name="quantity" value="1" max="{{$data->stock}}">
-
-                                            <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                                <i class="fs-16 zmdi zmdi-plus"></i>
-                                            </div>
+                                        <div class="flex-w flex-m m-r-20 m-tb-5">
+                                            <select class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" name="quantity">
+                                                @for($i=1;$i<=$data->stock;$i++)
+                                                    <option>{{$i}}</option>
+                                                @endfor
+                                            </select>
+                                            <button class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" type="submit">
+                                                Sepete Ekle
+                                            </button>
                                         </div>
-                                        <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" type="submit">
-                                            Sepete Ekle
-                                        </button>
                                     </form>
                                 </div>
                             </div>

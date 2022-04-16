@@ -1,5 +1,5 @@
 <div>
-    <input wire:model="search" name="search" type="text" class="navbar-search" list="mylist" placeholder="Search in Treatments..."/>
+    <input wire:model="search" name="search" type="text" class="mtext-107 cl2 size-114 plh2 p-r-15" list="mylist" placeholder="Ürünlerde Ara..."/>
 
     @if(!empty($query))
         <datalist id="mylist">
